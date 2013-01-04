@@ -8,11 +8,10 @@
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+	{{ Asset::styles() }}
 	<style type="text/css">
 		body { padding-top: 60px; padding-bottom: 40px; }
 	</style>
-	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -72,17 +71,6 @@
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="http://code.jquery.com/jquery.min.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-transition.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-alert.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-modal.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-dropdown.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-scrollspy.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tab.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tooltip.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-popover.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-button.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-carousel.js"></script>
-	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js"></script>
+	{{ Asset::scripts() }}
 </body>
 </html>

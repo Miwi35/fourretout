@@ -9,7 +9,7 @@
 					<h3>
 						{{ $board->fulltitle }}
 						<a href="{{ URL::to_route('board_show', $board->id); }}" class="btn btn-primary btn-mini">
-							<i class="icon-white icon-chevron-right"></i>&nbsp;
+							<i class="icon-angle-right"></i>&nbsp;
 						</a>
 					</h3>
 					@if(count($board->topics) > 0)

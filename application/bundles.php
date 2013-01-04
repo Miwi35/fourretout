@@ -36,5 +36,7 @@
 return array(
 
 	'docs' => array('handles' => 'docs'),
+	'laraveless' => array('auto' => true),
+	'kickstrap' => array('auto' => true),
 
 );
