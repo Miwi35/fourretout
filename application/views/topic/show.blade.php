@@ -1,29 +1,21 @@
-@layout('layout')
+<div class="page-header">
+	<h1>{{ $topic->fulltitle }}</h1>
+</div>
 
-@section('content')
+@if(count($topic->posts) > 0)
+	<table class="table table-striped table-hover table-condensed">
+		<thead>
+			<th>Titre</th>
+			<th>Commentaires</th>
+			<th></th>
+		</thead>
+		@foreach($topic->posts as $post)
+			<tbody>
+				<td>{{ $post->linktitle }}</td>
+				<td>{{ count($post->comments) }}</td>
+				<td><a href="{{ URL::to_route('post_show', $post->id); }}" class="btn btn-primary">Voir</a></td>
+			</tbody>
+		@endforeach
 
-	<div class="page-header">
-		<h1>{{ $topic->title }} <small>{{ $topic->description }}</small></h1>
-	</div>
-
-	{{ var_dump($topic->posts); die; }}
-
-	@if(count($topic->posts()->get()) > 0)
-		<table class="table table-striped table-hover table-condensed">
-			<thead>
-				<th>Titre</th>
-				<th>Commentaires</th>
-				<th></th>
-			</thead>
-			@foreach($topic->posts as $post)
-				<tbody>
-					<td>{{ $post->title }}</td>
-					//<td>{{ count($post->comments()->get()) }}</td>
-					<td><a href="/post/{{ $post->id }}" class="btn btn-primary">Voir</a></td>
-				</tbody>
-			@endforeach
-
-		</table>
-	@endif
-
-@endsection
+	</table>
+@endif

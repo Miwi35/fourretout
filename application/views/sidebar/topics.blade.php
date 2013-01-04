@@ -1,13 +1,17 @@
-<h5>Topics</h5>
+<li class="nav-header">Topics</li>
 
 @if ( count($board->topics) > 0 )
-	<ul>
-		@foreach ( $board->topics as $topic)
-		    <li><a href="/topic/{{ $topic->id }}">{{ $topic->title }}</a></li>
-		@endforeach
-	</ul>
+	@foreach ( $board->topics as $topic)
+	    <li>
+	    	<a href="{{ URL::to_route('topic_show', $topic->id); }}">
+	    		{{ $topic->fulltitledash }}
+	    		
+	    	</a>
+	    </li>
+	@endforeach
 @else
-	<p>Aucun topic</p>
+	<li>Aucun topic</li>
 @endif
-
-<a href="/topic/new/to/{{ $board->id }}" class="btn btn-primary"><i class="icon-white icon-plus"></i>  Ajouter un topic</a>
+<li>
+	<a href="{{ URL::to_route('topic_new', $board->id); }}"><i class="icon-plus"></i>  Ajouter un topic</a>
+</li>

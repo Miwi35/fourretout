@@ -32,25 +32,79 @@
 |
 */
 
-Route::get('/topic/(:num)', 'topic@show');
 
-Route::get('/topic/new', 'topic@new');
+//boards
+Route::get('/boards', array( 
+	'as' => 'boards', 
+	'uses' => 'board@index')
+);
 
-Route::get('/topic/new/to/(:num)', 'topic@new');
+Route::get('/board/(:num)', array(
+	'as' => "board_show", 
+	'uses' => 'board@show')
+);
 
-Route::post('/topic/create', 'topic@create');
+Route::get('/board/new', array(
+	'as' => "board_new", 
+	'uses' => 'board@new')
+);
+
+Route::get('/board/edit/(:num)', array(
+	'as' => "board_edit", 
+	'uses' => 'board@edit')
+);
+
+Route::post('/board/create', array(
+	'as' => "board_create", 
+	'uses' => 'board@create')
+);
+
+Route::post('/board/update/(:num)', array(
+	'as' => "board_update", 
+	'uses' => 'board@update')
+);
 
 
-Route::get('/board/(:num)', 'board@show');
+//topics
+Route::get('/topic/(:num)', array(
+	'as' => "topic_show", 
+	'uses' => 'topic@show')
+);
 
-Route::get('/board/new', 'board@new');
+Route::get('/topic/new/to/(:num)', array(
+	'as' => "topic_new", 
+	'uses' => 'topic@new')
+);
 
-Route::post('/board/create', 'board@create');
+Route::post('/topic/create', array(
+	'as' => "topic_create", 
+	'uses' => 'topic@create')
+);
 
-Route::get('/', function()
-{
-	return View::make('home.main');
-});
+
+//posts
+Route::get('/post/(:num)', array(
+	'as' => "post_show", 
+	'uses' => 'post@show')
+);
+
+Route::get('/post/new/to/(:num)', array(
+	'as' => "post_new", 
+	'uses' => 'post@new')
+);
+
+Route::post('/post/create', array(
+	'as' => "post_create", 
+	'uses' => 'post@create')
+);
+
+Route::get('/', array( 'as' => 'home', function()
+	{
+		return Redirect::to_route('boards');
+	})
+);
+
+
 
 
 Route::any('/(:any)/(:any)', function($dir, $view)

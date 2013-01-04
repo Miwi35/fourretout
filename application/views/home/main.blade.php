@@ -1,4 +1,4 @@
-@layout('layout')
+@layout('layouts.main')
 
 @section('content')
 	<div class="hero-unit">

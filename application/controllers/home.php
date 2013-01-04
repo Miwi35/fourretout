@@ -35,9 +35,4 @@ class Home_Controller extends Base_Controller {
 		return View::make('home.index');
 	}
 
-	public function action_hello()
-	{
-		return "Putain de hello";
-	}
-
 }

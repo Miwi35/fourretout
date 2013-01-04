@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Bootstrap, from Twitter</title>
+	<title>Fourretout</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -38,9 +38,9 @@
 				<a class="brand" href="#">Fourre-tout</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class="active"><a href="/boards">Accueil</a></li>
+						<li class="active"><a href="{{ URL::to_route('home'); }}">Accueil</a></li>
 						@foreach(Board::all() as $board)
-							<li><a href="/board/{{ $board->id }}">{{ $board->title }}</a></li>
+							<li><a href="{{ URL::to_route('board_show', $board->id); }}">{{ $board->title }}</a></li>
 						@endforeach
 						<li><a href="/board/new">Ajouter un board</a></li>
 					</ul>
@@ -52,13 +52,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="<?php echo (isset($sidebar) && $sidebar) ? "span8" : "span12" ?>">
-				@yield('content')
+				{{ $content }}
 			</div>
-			@if(isset($sidebar) && $sidebar)
+			@if(isset($sidebar))
 				<div class="span3 offset1">
-					<div class="well">
-						@yield('sidebar')
-					</div>
+					{{ $sidebar }}
 				</div>
 			@endif
 		</div>

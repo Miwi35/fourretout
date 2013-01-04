@@ -1,0 +1,1 @@
+<li><a href="{{ URL::to_route('post_new', $topic_id); }}"><i class="icon-plus"></i>  Ajouter un post</a></li>
