@@ -8,7 +8,7 @@ class Post_Controller extends Base_Controller
         $post = Post::with(array('topic', 'topic.board', 'comments'))
         	->find($post_id);
 
-
+        $this->layout->title = $post->title;
         
 		$this->layout->content = View::make('post.show')
 					->with('post', $post)

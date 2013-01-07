@@ -1,7 +1,3 @@
-<div class="page-header">
-	<h1>{{ $post->title }}</h1>
-</div>
-
 <p>{{ $post->content }}</p>
 
 {{ $commentForm }}

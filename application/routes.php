@@ -104,6 +104,28 @@ Route::get('/', array( 'as' => 'home', function()
 	})
 );
 
+//users
+Route::get('/login/form/widget', array(
+	'as' => "user_login_widget", 
+	'uses' => 'user@form')
+);
+
+Route::get('/login/form', array(
+	'as' => "user_login",
+	'uses' => 'user@form')
+);
+
+Route::post('/login/auth', array(
+	'as' => "user_auth",
+	'uses' => 'user@auth')
+);
+
+
+//search
+Route::post('/search/query', array(
+	'as' => "search_query",
+	'uses' => 'search@query')
+);
 
 
 

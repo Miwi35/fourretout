@@ -5,6 +5,8 @@ class Board_Controller extends Base_Controller
 	public function action_index()
 	{
 		$boards = Board::with('topics')->all();
+		
+		$this->layout->title = "Boards";
 		$this->layout->content = View::make('board.index')
 			->with('boards', $boards);
 	}
@@ -13,6 +15,8 @@ class Board_Controller extends Base_Controller
 	{
 		$board = Board::find($board_id);
 		$topics = $board->topics;
+
+		$this->layout->title = $board->fulltitle;
 
 		$this->layout->sidebar = View::make('sidebar.sidebar')
 					->with('modules', array(

@@ -6085,16 +6085,30 @@ body {
 h1 {
   font-size: 50px;
 }
+h1 small {
+  color: #999;
+}
 h2,
 h3 {
   font-size: 26px;
 }
+h2 small,
+h3 small {
+  color: #999;
+}
 h4 {
   font-size: 14px;
+}
+h4 small {
+  color: #999;
 }
 h5,
 h6 {
   font-size: 11px;
+}
+h5 small,
+h6 small {
+  color: #999;
 }
 blockquote {
   padding: 10px 15px;

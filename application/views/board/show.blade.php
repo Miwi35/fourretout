@@ -1,7 +1,3 @@
-<div class="hero-unit">
-	<h1>{{ $board->fulltitle }}</h1>
-</div>
-
 @foreach($board->topics as $topic)
 	<div class="row-fluid">
 		<div class="span12">

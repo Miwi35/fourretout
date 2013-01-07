@@ -403,7 +403,7 @@ setTimeout(function() {
 		}
 }, 5000);
 
-function themeFunction(urlPath) {$.ajax({type: "GET", url: ks.opts.rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
+function themeFunction(urlPath) {$.ajax({type: "GET", url: ks.opts.rootDir + 'themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
 
 // BEGIN
 // =====
@@ -527,7 +527,7 @@ function app(x) {
   this.countDependent=[999,0];
   this.name = x;
   this.loaded = false;
-  configPath = ks.opts.rootDir + "Kickstrap/apps/";
+  configPath = ks.opts.rootDir + "apps/";
   this.configPath = configPath + x + '/config.ks';
   // Override if user wants CDN-hosted config.ks files.
   if (x.substring(0, 5) == "http:" || x.substring(0,6) == "https:") { this.configPath = x; }

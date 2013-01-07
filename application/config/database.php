@@ -75,14 +75,14 @@ return array(
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
-		),
+		)/*,
 
-		/*'pgsql' => array(
+		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
+			'database' => 'laravel',
+			'username' => 'laravel',
+			'password' => 'laravel',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',

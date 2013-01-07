@@ -29,28 +29,61 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse.collapse">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
+
 				<a class="brand" href="#">Fourre-tout</a>
-				<div class="nav-collapse">
+
+				<div class="nav-collapse collapse">
+
 					<ul class="nav">
-						<li class="active"><a href="{{ URL::to_route('home'); }}">Accueil</a></li>
-						@foreach(Board::all() as $board)
-							<li><a href="{{ URL::to_route('board_show', $board->id); }}">{{ $board->title }}</a></li>
-						@endforeach
-						<li><a href="/board/new">Ajouter un board</a></li>
+						<li><a href="{{ URL::to_route('home'); }}">Accueil</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Boards<b class="caret"></b></a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								@foreach(Board::all() as $board)
+									<li><a href="{{ URL::to_route('board_show', $board->id); }}">{{ $board->title }}</a></li>
+								@endforeach
+								<li><a href="/board/new">Ajouter un board</a></li>
+							</ul>
+	                     </li>
 					</ul>
+
+					@render('search.form-menu')
+					<ul class="nav pull-right">
+						<li><a href="inscription"><i class="icon-user"></i> Inscription</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-signin"></i> Se Connecter<b class="caret"></b></a>
+							<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+				              @render('user.login-menu')
+							</div>
+						</li>
+					</ul>
+					 
 				</div><!--/.nav-collapse -->
+
 			</div>
+		</div>
+	</div>
+
+	<div class="navbar" id="subnav">
+		<div class="container">
 		</div>
 	</div>
 
 	<div class="container">
 		<div class="row">
 			<div class="<?php echo (isset($sidebar) && $sidebar) ? "span8" : "span12" ?>">
+				@if(isset($title))
+					<div class="page-header">
+						<h1>{{$title}}</h1>
+					</div>
+				@endif
 				{{ $content }}
 			</div>
 			@if(isset($sidebar))
@@ -70,6 +103,7 @@
 	<!-- Le javascript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
+	@include('misc.jsvars')
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	{{ Asset::scripts() }}
 </body>
