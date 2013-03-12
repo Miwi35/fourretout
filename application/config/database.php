@@ -42,7 +42,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 			'driver'   => 'sqlite',
 			'database' => 'application',
 			'prefix'   => '',
-		),*/
+		),
 
 		'mysql' => array(
 			'driver'   => 'mysql',
@@ -75,7 +75,7 @@ return array(
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
-		)/*,
+		),*/
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
@@ -88,7 +88,7 @@ return array(
 			'schema'   => 'public',
 		),
 
-		'sqlsrv' => array(
+		/*'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
 			'host'     => 'localhost',
 			'database' => 'database',
@@ -116,7 +116,7 @@ return array(
 
 		'default' => array(
 			'host'     => '127.0.0.1',
-			'port'     => 6379,
+			'port'     => 5432,
 			'database' => 0
 		),
 
